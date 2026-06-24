@@ -1,4 +1,4 @@
-#🚀 Mission A.S.T.R.I.S. — Advanced Spaceflight Simulator
+🚀 Mission A.S.T.R.I.S. — Advanced Spaceflight Simulator
 Mission A.S.T.R.I.S. is an advanced, fully web‑based spaceflight simulator designed to model realistic physics, multi‑technology propulsion systems, and complex aerodynamic dynamics directly in the browser.
 
 Built for space enthusiasts, students, developers, and mission designers, ASTRIS combines scientific accuracy, engineering modularity, and a fully customizable approach to spacecraft simulation — all without requiring installation.
