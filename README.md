@@ -1,127 +1,152 @@
-# 🚀 Mission A.S.T.R.I.S. — Advanced Spaceflight Simulator
+🚀 Mission A.S.T.R.I.S. — Advanced Spaceflight Simulator
+Mission A.S.T.R.I.S. is an advanced, fully web‑based spaceflight simulator designed to model realistic physics, multi‑technology propulsion systems, and complex aerodynamic dynamics directly in the browser.
 
-**Mission A.S.T.R.I.S.** è un simulatore di volo spaziale avanzato, completamente **web‑based**, progettato per modellare fisica realistica, propulsione multi‑tecnologica e dinamiche aerodinamiche complesse direttamente nel browser.
+Built for space enthusiasts, students, developers, and mission designers, ASTRIS combines scientific accuracy, engineering modularity, and a fully customizable approach to spacecraft simulation — all without requiring installation.
 
-Pensato per appassionati di spazio, studenti, sviluppatori e creatori di missioni, ASTRIS combina accuratezza scientifica, modularità ingegneristica e un approccio completamente personalizzabile alla simulazione di veicoli spaziali — tutto senza installazioni.
+🌍 Key Features
+Web‑based: runs on any modern browser.
 
----
+Advanced physics: aerodynamics, thermodynamics, radiation, inertia.
 
-## 🌍 Caratteristiche principali
-- **Web‑based**: funziona su qualsiasi browser moderno.
-- **Fisica avanzata**: aerodinamica, termodinamica, radiazione, inerzia.
-- **Propulsione completa**: chimica, criogenica, solida, ipergolica, ionica, plasma, nucleare, fusione.
-- **Strutture modulari**: stadi, serbatoi, capsule, moduli nucleari e plasma.
-- **Dataset ingegneristico reale**: materiali, coefficienti aerodinamici, costanti fisiche.
-- **Scritto in JavaScript**: leggero, estendibile, modificabile.
+Complete propulsion models: chemical, cryogenic, solid, hypergolic, ionic, plasma, nuclear, fusion.
 
----
+Modular structures: stages, tanks, capsules, nuclear and plasma modules.
 
-## 🔎 Descrizione ottimizzata per indicizzazione
+Real engineering datasets: materials, aerodynamic coefficients, physical constants.
 
-**Mission ASTRIS** è un *web‑based space flight simulator* che implementa:
+Written in JavaScript: lightweight, extensible, modifiable.
 
-- modelli fisici avanzati per aerodinamica, termodinamica e propulsione  
-- un sistema completo di propellenti (chimici, criogenici, solidi, ipergolici, ionici, plasma, nucleari e fusione)  
-- simulazione di materiali, strutture, coefficienti aerodinamici e dissipazione termica  
-- configurazioni modulari di stadi, serbatoi e motori  
-- calcoli basati su costanti fisiche reali (G, c, σ, R, ecc.)
+🔎 SEO‑Optimized Description
+Mission ASTRIS is a web‑based space flight simulator implementing:
 
-Il simulatore è scritto in **JavaScript**, progettato per funzionare su qualsiasi browser moderno e ottimizzato per essere esteso, modificato e integrato in progetti educativi o di ricerca.
+advanced physical models for aerodynamics, thermodynamics, and propulsion
 
-### 🔑 Keywords SEO
-`space simulator`, `web-based space simulator`, `orbital physics`,  
-`spacecraft engineering`, `rocket propulsion`, `WebGL space engine`,  
-`JavaScript physics engine`, `rocket fuels simulation`, `nuclear propulsion`,  
-`ion thrusters`, `plasma engines`, `fusion propulsion`,  
-`aerodynamic modeling`, `spacecraft materials simulation`
+a complete propellant system (chemical, cryogenic, solid, hypergolic, ionic, plasma, nuclear, fusion)
 
----
+simulation of materials, structures, aerodynamic coefficients, and thermal dissipation
 
-## 🧪 Technical Overview
+modular configurations for stages, tanks, and engines
 
-### ⚙️ 1. Physical Constants
-Il simulatore utilizza costanti fisiche reali come:
+calculations based on real physical constants (G, c, σ, R, etc.)
 
-- **G = 6.67430e‑11** — costante gravitazionale  
-- **c = 299,792,458 m/s** — velocità della luce  
-- **S = 5.67e‑8** — costante di Stefan‑Boltzmann  
-- **R = 8.314462618** — costante dei gas ideali  
+The simulator is written in JavaScript, designed to run on any modern browser, and optimized to be extended, modified, and integrated into educational or research projects.
 
-Queste costanti permettono simulazioni termiche, radiative e dinamiche accurate.
+🔑 SEO Keywords
+space simulator, web-based space simulator, orbital physics,
+spacecraft engineering, rocket propulsion, WebGL space engine,
+JavaScript physics engine, rocket fuels simulation, nuclear propulsion,
+ion thrusters, plasma engines, fusion propulsion,
+aerodynamic modeling, spacecraft materials simulation
 
----
+🧪 Technical Overview
+⚙️ 1. Physical Constants
+The simulator uses real physical constants such as:
 
-### 🪂 2. Aerodynamic & Material Models
-Il simulatore include mappe dettagliate per:
+G = 6.67430e‑11 — gravitational constant
 
-- **Materiali paracadute**: Nylon, Kevlar, Vectran, UHMWPE, Nomex, CarbonWeave, ecc.  
-- **Strutture paracadute**: Hemispherical, Ringsail, Disk‑Gap‑Band, Parafoil, Toroidal, ecc.  
+c = 299,792,458 m/s — speed of light
 
-Parametri modellati:
+σ = 5.67e‑8 — Stefan‑Boltzmann constant
 
-- **cd** — drag coefficient  
-- **e** — elasticità  
-- **a** — assorbimento  
-- **r** — resistenza  
+R = 8.314462618 — ideal gas constant
 
-Questi parametri permettono simulazioni realistiche di rientro, frenata atmosferica e dispiegamento.
+These constants enable accurate thermal, radiative, and dynamic simulations.
 
----
+🪂 2. Aerodynamic & Material Models
+The simulator includes detailed maps for:
 
-### 🔥 3. Complete Propulsion Database
-Una delle librerie propulsive più vaste mai viste in un progetto web:
+Parachute materials: Nylon, Kevlar, Vectran, UHMWPE, Nomex, CarbonWeave, etc.
 
-- **Chimici liquidi**: RP‑1, Bio‑Kerosene, Ethanol…  
-- **Criogenici**: LH₂, LOX‑Methane, LOX‑RP‑1…  
-- **Solidi**: HTPB  
-- **Ipergolici**: UDMH, Aerozine‑50, Hydrazine…  
-- **Monopropellenti**: AF‑M315E, LMP‑103S…  
-- **Nucleari termici**: LEU, HALEU, HEU, Cermet, Gas Core…  
-- **Ionici**: Xenon, Krypton, Argon…  
-- **Plasma**: Hydrogen Plasma, Deuterium Plasma…  
-- **Fusione**: D‑T, D‑D, D‑He3, He3‑He3  
+Parachute structures: Hemispherical, Ringsail, Disk‑Gap‑Band, Parafoil, Toroidal, etc.
 
-Ogni propellente include:
+Modeled parameters:
 
-- **density**  
-- **tsfc** (thrust specific fuel consumption)  
-- **cv** (calorific value)  
-- **class** (liquid, cryo, nuclear, ionic, plasma, fusion)
+cd — drag coefficient
 
----
+e — elasticity
 
-### 🧱 4. Structural Modules
-La mappa delle strutture del veicolo include:
+a — absorption
 
-- serbatoi liquidi  
-- serbatoi criogenici  
-- moduli pressurizzati  
-- camere di combustione nucleari  
-- moduli di contenimento plasma  
-- capsule aerodinamiche  
-- ogive e moduli di rientro  
+r — tensile strength
 
-Parametri modellati:
+These parameters allow realistic simulations of re‑entry, atmospheric braking, and deployment.
 
-- **cd** — drag coefficient  
-- **sideCd**  
-- **a** — assorbimento termico  
-- **cp** — heat capacity  
-- **k** — thermal conductivity  
-- **η, ηt, ηg** — efficienze termiche e meccaniche  
-- **conditions** — compatibilità con classi di propellente  
+🔥 3. Complete Propulsion Database
+One of the most extensive propulsion libraries ever included in a web project:
 
----
+Liquid chemical: RP‑1, Bio‑Kerosene, Ethanol…
 
-## 🛰️ In sintesi
-**Mission A.S.T.R.I.S.** non è un semplice simulatore web:  
-è un **motore fisico aerospaziale avanzato**, con un enorme database ingegneristico e una struttura modulare che permette simulazioni realistiche di:
+Cryogenic: LH₂, LOX‑Methane, LOX‑RP‑1…
 
-- propulsione  
-- aerodinamica  
-- termodinamica  
-- materiali  
-- strutture  
-- missioni  
+Solid: HTPB
 
-Direttamente nel browser.
+Hypergolic: UDMH, Aerozine‑50, Hydrazine…
+
+Monopropellants: AF‑M315E, LMP‑103S…
+
+Nuclear thermal: LEU, HALEU, HEU, Cermet, Gas Core…
+
+Ion: Xenon, Krypton, Argon…
+
+Plasma: Hydrogen Plasma, Deuterium Plasma…
+
+Fusion: D‑T, D‑D, D‑He3, He3‑He3
+
+Each propellant includes:
+
+density
+
+tsfc (thrust specific fuel consumption)
+
+cv (calorific value)
+
+class (liquid, cryo, nuclear, ionic, plasma, fusion)
+
+🧱 4. Structural Modules
+The vehicle structure map includes:
+
+liquid tanks
+
+cryogenic tanks
+
+pressurized modules
+
+nuclear combustion chambers
+
+plasma containment modules
+
+aerodynamic capsules
+
+nose cones and re‑entry modules
+
+Modeled parameters:
+
+cd — drag coefficient
+
+sideCd
+
+a — thermal absorption
+
+cp — heat capacity
+
+k — thermal conductivity
+
+η, ηt, ηg — thermal and mechanical efficiencies
+
+conditions — compatibility with propellant classes
+
+🛰️ Summary
+Mission A.S.T.R.I.S. is not just a web simulator:
+it is an advanced aerospace physics engine, featuring a massive engineering database and a modular structure that enables realistic simulations of:
+
+propulsion
+
+aerodynamics
+
+thermodynamics
+
+materials
+
+structures
+
+mission profiles
