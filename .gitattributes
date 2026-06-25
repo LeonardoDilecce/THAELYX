@@ -1,3 +1,7 @@
 js/* linguist-vendored=false
-*.js linguist-detectable=true
-*.css linguist-detectable=true
+js/* linguist-generated=false
+*.js linguist-language=JavaScript
+dist/* linguist-generated=true
+build/* linguist-generated=true
+public/* linguist-generated=true
+docs/* linguist-generated=true
