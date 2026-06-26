@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it" class="UnseletionableText">
+<head>
+    <title>T.H.A.E.L.Y.X</title>
+	<meta name="description" content="Web‑based space simulator in JavaScript (JS) with orbital physics, rocket propulsion, aerodynamic modeling, relativistics and modular spacecraft systems.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="date=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="google-site-verification" content="5xM4dMV3bdRcAXdS_uMNSSHmyp2I_Eg5_DNypOsBx1Y" /> 
+	<link rel="stylesheet" type="text/css" href="css/base.css">  
+    <script type="text/javascript" src="js/core/constants.js" defer></script>
+    <script type="text/javascript" src="js/core/vettore.js" defer></script>
+    <script type="text/javascript" src="js/core/dataMaps.js" defer></script>
+    <script type="text/javascript" src="js/entities/atmosphere.js" defer></script>
+    <script type="text/javascript" src="js/entities/celestial/moon.js" defer></script>
+    <script type="text/javascript" src="js/entities/celestial/planet.js" defer></script>
+    <script type="text/javascript" src="js/entities/celestial/star.js" defer></script>
+    <script type="text/javascript" src="js/entities/ship/surfaceData.js" defer></script>
+    <script type="text/javascript" src="js/entities/ship/engine.js" defer></script>
+    <script type="text/javascript" src="js/entities/ship/heatShield.js" defer></script>
+    <script type="text/javascript" src="js/entities/ship/parachute.js" defer></script>
+    <script type="text/javascript" src="js/entities/ship/stage.js" defer></script>
+    <script type="text/javascript" src="js/entities/ship/starship.js" defer></script>
+    <script type="text/javascript" src="js/entities/simulation/chronometer.js" defer></script>
+    <script type="text/javascript" src="js/entities/simulation/camera.js" defer></script>
+	<script type="text/javascript" src="js/physics/kepler.js" defer></script>
+	<script type="text/javascript" src="js/physics/calculateTrueAnomaly.js" defer></script>
+	<script type="text/javascript" src="js/physics/reloadGravity.js" defer></script>
+    <script type="text/javascript" src="js/physics/influenceArea.js" defer></script>
+	<script type="text/javascript" src="js/physics/calculateHullVolume.js" defer></script>
+	<script type="text/javascript" src="js/physics/calculateGasCp.js" defer></script>
+    <script type="text/javascript" src="js/physics/updateEnginesTemperature.js" defer></script>
+	<script type="text/javascript" src="js/physics/reloadCoriolisAcceleration.js" defer></script>
+	<script type="text/javascript" src="js/physics/reloadThrust.js" defer></script>
+	<script type="text/javascript" src="js/physics/reloadDrag.js" defer></script>
+	<script type="text/javascript" src="js/physics/reloadStarshipDragCoefficient.js" defer></script>
+	<script type="text/javascript" src="js/physics/reloadParchuteDeployment.js" defer></script>
+	<script type="text/javascript" src="js/physics/calculateMeanMolarMass.js" defer></script>
+	<script type="text/javascript" src="js/physics/calculateAtmosphericPressure.js" defer></script>
+	<script type="text/javascript" src="js/physics/simulateAtmosphercColumn.js" defer></script>
+	<script type="text/javascript" src="js/physics/computePlanetaryTemperature.js" defer></script>
+	<script type="text/javascript" src="js/physics/updateReentryTemperature.js" defer></script>
+	<script type="text/javascript" src="js/physics/reloadThermodynamics.js" defer></script>
+	<script type="text/javascript" src="js/physics/reloadAcceleration.js" defer></script>
+	<script type="text/javascript" src="js/interface/reloadButtons.js" defer></script>
+	<script type="text/javascript" src="js/physics/ComputePhysics.js" defer></script>
+
+	<script type="text/javascript" src="js/physics/reloadFuelConsumption.js" defer></script>
+    <script type="text/javascript" src="js/simulation/gameData.js" defer></script>
+    <script type="text/javascript" src="js/simulation/spaceSimulator.js" defer></script>
+</head>
+<body class="UnseletionableText">
+	<div class = "UnseletionableText GameLayer0">
+		<canvas id="renderCanvas" width="1920" height="1080" tabindex="0"></canvas>
+	</div>
+	<button id="toggleRightMenu" class="BaseStandardButton toggleRightMenu">Toolbar</button>
+	<div class="RightMenu" id="RightMenu">
+  		<ul>
+			<button id="StarshipSettingsMenu" class="UnseletionableText BaseStandardButton starshipSettingsButton">Starship Settings</button>
+			<button id="RelaunchShip" class="UnseletionableText BaseStandardButton RelaunchStarshipButton">Build New Starship</button>
+			<button id="Save" class="UnseletionableText BaseStandardButton SaveSimulationButton">Save Simulation</button>
+			<button id="Revert" class="UnseletionableText BaseStandardButton ResetSimulationButton">Restart Simulation</button>
+  		</ul>
+	</div>
+	<div id="WarningPanel" class="UnseletionableText settings_warn-panel hidden">
+  		<div id="StarshipPanelHeader" class="UnseletionableText panel-header">Warning!</div>
+		<h2 id="WarnInfoResetText" class="UnseletionableText warnTxt">Warning!</h2>
+		<button id="okwarnInfoResetButton" class="UnseletionableText oka">OK</button>
+		<button id="undowarnInfoResetButton" class="UnseletionableText undoa">Abort</button>
+  		</div>
+	</div>
+		<div id="WarningPanel2" class="UnseletionableText settings_warn-panel hidden">
+  		<div id="StarshipPanelHeader" class="UnseletionableText panel-header">Warning!</div>
+		<h2 id="WarnInfoResetText2" class="UnseletionableText warnTxt">Warning!</h2>
+		<button id="okwarnInfoResetButton2" class="UnseletionableText oka">OK</button>
+		<button id="undowarnInfoResetButton2" class="UnseletionableText undoa">Abort</button>
+  		</div>
+	</div>
+	<div id="StarshipPanel" class="UnseletionableText settings-panel hidden">
+  		<div id="StarshipPanelHeader" class="UnseletionableText panel-header">Starship Settings</div>
+  		<div class="UnseletionableText panel-content">
+    		<div class="UnseletionableText textSpace">
+				<div class="stage-nav-header">
+  					<button id="prevStageBtn">◀</button>
+  					<span id="stageTitle">Stage 1</span>
+  					<button id="nextStageBtn">▶</button>
+  					<button id="moveStageUp">🔼</button>
+  					<button id="moveStageDown">🔽</button>
+  					<button id="chiudiImpostazioniAstronave">✖</button>
+				</div>
+				<div class="stage-action-bar">
+  					<button id="saveStageChanges">💾 Save Stage</button>
+  					<button id="addNewStage">➕ Add Stage</button>
+  					<button id="deleteStage">🗑️ Remove Stage</button>
+				</div>
+				<div id="stageEditorContainer"></div> </div>
+    		</div>
+  		</div>
+	</div>
+	<button id="toggleEngines" class = "UnseletionableText BaseStandardButton toggleEngines" >Activate Engines</button>
+	<button id="LeftEngines" class = "UnseletionableText BaseStandardButton LeftEngines">◄</button>
+	<button id="RightEngines" class = "UnseletionableText BaseStandardButton RightEngines">►</button>
+	<button id="StageSeparator" class = "UnseletionableText BaseStandardButton StageSeparator"> </button>
+	<button id="ParachuteButton" class = "UnseletionableText BaseStandardButton ParachuteButton"> </button>
+	<button id="button5" class = "UnseletionableText NoClickButton BaseStandardButton button5"></button>
+	<label class = "label2" for="thrustSlider">Engine Thrust: <span id="thrustValue">0.0</span>%</label>
+		<input type="range"id="thrustSlider" class = "thrustSlider" min="0" max="100"step="0.1"value="0"/>
+	<label class = "label3" for="speedSlider">Simulation Speed: <span id="speedValue">1.0</span> x</label>
+		<input type="range" id="speedSlider" class = "speedSlider" min="0" max="250" step="0.1" value="1">
+</body>
+</html>
