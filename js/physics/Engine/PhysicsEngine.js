@@ -36,9 +36,14 @@
   * such as solving Kepler's equation and calculating true anomalies.
   * -------------
   * Otrher Files:
-  * - js/physics/Engine/Kepler.js
-  * - js/physics/Engine/CalculateTrueAnomaly.js
-  * - js/physics/Engine/CalculateTrueAnomalyRelativisticCorrection.js
+  * - js/physics/Engine/Orbital/SolveKepler.js
+  * - js/physics/Engine/Orbital/CalculateTrueAnomaly.js
+  * - js/physics/Engine/Orbital/CalculateTrueAnomalyRelativisticCorrection.js
+  * - js/physics/Engine/Atmospheric/ComputeHumidityFactor.js
+  * - js/physics/Engine/Atmospheric/ComputeSpecificHeat.js
+  * - js/physics/Engine/Atmospheric/ComputeMolarMass.js
+  * 
+  * - js/physics/Engine/Atmospheric/simulateAtmosphercColumn.js
   * 
   **/
 class PhysicsEngine 
@@ -58,7 +63,7 @@ class PhysicsEngine
         this.keplerTolerance = keplerTolerance;
         this.maxRelativisticPrecision = maxRelativisticPrecision;
     };
-    //Defined in js/physics/Engine/CalculateTrueAnomaly.js
+    //Defined in js/physics/Engine/Orbital/CalculateTrueAnomaly.js
     CalculateTrueAnomaly(
         a, 
         e, 
@@ -66,7 +71,7 @@ class PhysicsEngine
         M0,
         centralMass
     ) {};
-    //Defined in js/physics/Engine/CalculateTrueAnomalyRelativisticCorrection.js
+    //Defined in js/physics/Engine/Orbital/CalculateTrueAnomalyRelativisticCorrection.js
     CalculateTrueAnomalyRelativisticCorrection(
         theta,
         a, 
@@ -74,10 +79,22 @@ class PhysicsEngine
         t,
         centralMass
     ) {};
-    //Defined in js/physics/Engine/SolveKepler.js
+    //Defined in js/physics/Engine/Orbital/SolveKepler.js
     SolveKepler(
         M, 
         e, 
         tolerance = 1e-6
+    ) {};
+    //Defined in js/physics/Engine/Atmospheric/ComputeHumidityFactor.js
+    ComputeAtmosphericHumidityFactor(
+        composition
+    ) {};
+    //Defined in js/physics/Engine/Atmospheric/ComputeMolarMass.js
+    ComputeAtmosphericMolarMass(
+        composition
+    ) {};
+    //Defined in js/physics/Engine/Atmospheric/ComputeSpecificHeat.js
+    ComputeAtmosphericSpecificHeat(
+        composition
     ) {};
 }

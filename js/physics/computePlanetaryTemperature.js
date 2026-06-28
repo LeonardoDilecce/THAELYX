@@ -18,7 +18,7 @@ function computePlanetaryTemperature(composition, luminosity, distance, albedo =
     const T_radiative = T_eq + (radiativeWm2 / (4 * S)) ** 0.25 - T_eq;
     const greenhouseTerm = 1 + D * f_GH * M_eff;
     const T_final = T_eq * Math.pow(greenhouseTerm, 0.25) + T_radiative;
-    const testResult = simulateAtmosphericColumn(composition,massPlanet,radiusPlanet,T_final,pressure,0,maxAltitude,1,density_atm);
+    const testResult = physicsEngine.simulateAtmosphericColumn(composition,massPlanet,radiusPlanet,T_final,pressure,0,maxAltitude,1,density_atm);
     let bestMatch = testResult[0];
     let minDiff = Math.abs(testResult[0].altitude - relativeAltitude);
     for (const entry of testResult) {
