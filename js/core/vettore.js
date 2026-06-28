@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class Vettore 
 {
     constructor(x = 0, y = 0, origine = { x: 0, y: 0 }) {

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class SimulatorChronometer{
     constructor(year = 2000, month = 1, day = 1, hours = 12, minutes = 0, seconds = 0, speed = 1) {
         this.year = year

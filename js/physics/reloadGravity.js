@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function reloadGravity(engine,star,chronometer,starship,TargetMass,dx,dy,distanza2,distanza,targetA,targetE,TargetCenter,TargetEpochAnomaly,BaseMass,deltaTime){
     const anomaly = engine.CalculateTrueAnomaly(star,chronometer,targetA,targetE,chronometer.time,TargetEpochAnomaly,BaseMass,null,deltaTime,false); 
     const tr = targetA * (1 - targetE * targetE) / (1 + targetE * Math.cos(anomaly)); 

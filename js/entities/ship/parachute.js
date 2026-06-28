@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class Parachute{
     constructor(mass = 0,numParachutes = 0,areaParachute = 0,maxDeployAltitude = 0,maxShipSpeed = 0,parachuteMaterial = "",parachuteGeometry = "",openingPercent= 0,cut = false,surface = new SurfaceData()){
         this.mass = mass;

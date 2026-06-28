@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function reloadAcceleration(engine,starship,deltaTime,TargetMass,targetRadius,targetAtmosphere,targetA,targetE,TargetCenter,TargetEpochAnomaly,BaseMass){
     starship.acceleration = new Vettore(0, 0,{x:0,y:0})
     starship.angularVelocity = 0;

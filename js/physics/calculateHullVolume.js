@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function calculateHullVolume(h, d, s,kind) {
     const rEst = d / 2;
     const spessore = d * (s / 100);

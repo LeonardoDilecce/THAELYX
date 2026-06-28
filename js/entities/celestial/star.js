@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class Star{
     constructor(name,a,e,radius,color,angle,meanSpeed,mass,inclination,planets = [],corona = new Atmosphere(),luminosity = 0){
         this.name = name;

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function ComputePhysics(engine,starship,deltaTime,clone){
     if(!starship) return;
     let baseCoordinates = {x:0,y:0}

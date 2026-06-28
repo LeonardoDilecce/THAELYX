@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function updateEnginesTemperature(distanza, surface, rho, v, area, deltaTime,massa, cp_surface, k = 1.83e-5, targetAtmosphere, combustibileBruciato, carburanteNome,targetMass, targetRadius, targetDistance,clone = false) {
     const σ = 5.67e-8;
     const ε_surface = materialCpMap[surface.material]?.ε ?? 0.8;

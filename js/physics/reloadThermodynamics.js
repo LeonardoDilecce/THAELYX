@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function reloadThermodynamics(starship, deltaTime, targetAtmosphere, distanza,targetMass = 0,targetRadius = 0,targetDistance = 0) {
     if (!starship||starship.name === "clone") return;
     const output = reloadStarshipDragCoefficient(starship);

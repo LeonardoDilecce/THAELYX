@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class Planet{
     constructor(name,a,e,radius,color,angle,meanSpeed,mass,inclination,epochAnomaly = 0,moons = [],atmosphere = new Atmosphere(),isBase = false){
         this.name = name;

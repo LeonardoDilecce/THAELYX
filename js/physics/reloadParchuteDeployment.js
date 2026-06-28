@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function reloadParachuteDeployment(starship,targetAtmosphere,deltaTime){
     if(starship!=null&&targetAtmosphere!=null){
         const stadio = starship.Stages[starship.actualStage];

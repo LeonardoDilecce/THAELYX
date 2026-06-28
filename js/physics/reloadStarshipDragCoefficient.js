@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function reloadStarshipDragCoefficient(starship) {
     const componentiVisibili = [];
     const vel   = starship.velocity.clone();

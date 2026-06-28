@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class Starship {
     constructor(name = "Test Starship",mass = 0, position = {x:0,y:0}, relativePosition = {x:0,y:-6.371e6},
         velocity = new Vettore(0, 0,0,0), accelleration = new Vettore(0, 0,0,0), angularAccelleration = 0, angularVelocity = 0,

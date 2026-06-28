@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function reloadDrag(starship,targetAtmosphere,deltaTime,distanza){
     const h = distanza;
     if (targetAtmosphere && h >= 0&&h < targetAtmosphere.maxAltitude) {

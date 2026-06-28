@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class HeatShield{
     constructor(mass = 0,surface = new SurfaceData()){
         this.mass = mass;

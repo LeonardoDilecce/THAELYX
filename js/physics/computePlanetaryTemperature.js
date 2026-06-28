@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function computePlanetaryTemperature(composition, luminosity, distance, albedo = 0.3,density_atm = 1.04125e4,molecularWeight = null, scaleHeight = null,massPlanet, radiusPlanet,baseDensity,maxAltitude,pressure,relativeAltitude) {
     const T_eq = Math.pow(((1 - albedo) * luminosity) / (16 * Math.PI * S * Math.pow(distance, 2)),0.25);
     let f_GH = 0;

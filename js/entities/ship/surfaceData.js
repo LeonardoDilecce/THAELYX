@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class SurfaceData{
     constructor(height = 0, diameter = 0, kind = "",Cd=0,actualTemperature = 288.15,maxTemperature = 0,material = "",GLimit = 0,spessorePercentuale = 0){
         this.height = height;

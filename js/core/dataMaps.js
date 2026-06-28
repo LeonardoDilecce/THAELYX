@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 const paraMaterialsMap =            {"Nylon" :                      { cd: 1.28, r: 75000,  e: 0.22,  m: 0.22 },
                                      "Kevlar" :                     { cd: 1.25, r: 125000, e: 0.025, m: 0.47 },
                                      "Dacron" :                     { cd: 1.30, r: 35000,  e: 0.135, m: 0.25 },

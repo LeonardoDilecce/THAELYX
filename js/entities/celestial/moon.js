@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class Moon
 {
     constructor(name,a,e, radius, color, angle, meanSpeed,mass,inclination,epochAnomaly = angle, atmosphere = new Atmosphere()){

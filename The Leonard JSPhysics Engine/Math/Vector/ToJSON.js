@@ -1,6 +1,8 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 /**
   * 
-  * function toJSON()
+  * function ToJSON()
   *
   * Serializes the vector into a plain JSON object containing:
   *   - __type
@@ -19,10 +21,10 @@
   *   JSON object representing this vector
   *
   * Usage:
-  *   const json = v.toJSON();
+  *   const json = v.ToJSON();
   *
   */
-Vector.prototype.toJSON = function() 
+Vector.prototype.ToJSON = function() 
 {
     return (
     {

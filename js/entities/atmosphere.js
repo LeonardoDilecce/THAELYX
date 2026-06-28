@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class Atmosphere{
     constructor(density = 0,scaleHeight= 0,maxAltitude= 0,molecularWeight= 0,color =  "#00000000",composition  = {},albedo = 0){
         this.density = density;

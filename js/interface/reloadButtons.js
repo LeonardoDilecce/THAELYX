@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function reloadButtons(starship,altitude,targetRadius,targetAtmosphere){
     if(starship!=null){
         const par =globalGameData.Starship?.Stages[globalGameData.Starship.actualStage].parachute??null; 

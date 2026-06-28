@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class Stage{
     constructor(mass = 0,quantitaCarburante = 0,tipoCarburante = "",surface = new SurfaceData(),engine = null,parachute = null,heatShield = null){
         this.mass = mass;

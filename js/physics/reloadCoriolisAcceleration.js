@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function reloadCoriolisAcceleration(star,chronometer,starship,targetA,BaseMass,targetE,TargetCenter,TargetEpochAnomaly,deltaTime){
     if(starship.TypeRelObj == "planet"||starship.TypeRelObj == "moon"){
         const anomaly = physicsEngine.CalculateTrueAnomaly(targetA, targetE, globalGameData.chronometer.time, TargetEpochAnomaly, BaseMass);  

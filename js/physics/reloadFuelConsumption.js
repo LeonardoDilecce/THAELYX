@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 function reloadFuelConsumption(starship,deltaTime,targetAtmosphere,targetMass,targetRadius,targetDistance){
     const stadio = starship.Stages[starship.actualStage];
     if(stadio){

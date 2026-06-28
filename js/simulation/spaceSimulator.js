@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 const globalGameData = new GameData();
 try {
     const datiSalvati = localStorage.getItem("simulazione");

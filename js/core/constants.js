@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 var G   = 6.67430e-11;
 var c   = 299_792_458;
 var S   = 5.67e-8;

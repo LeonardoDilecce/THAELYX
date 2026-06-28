@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Leonardo Dilecce
 class Engine{
     constructor(mass = 0,Thrust = 0,angle=0,online=true,thrustPercent=0,tipoCarburante="",surface = new SurfaceData()){
         this.mass = mass;
