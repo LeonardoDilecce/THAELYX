@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- Copyright 2026 Leonardo Dilecce -->
 # Code of Conduct for T.H.A.E.L.Y.X
 
 ## 🌐 Our Commitment
