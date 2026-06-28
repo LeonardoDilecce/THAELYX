@@ -39,12 +39,18 @@
   * - js/physics/Engine/Orbital/SolveKepler.js
   * - js/physics/Engine/Orbital/CalculateTrueAnomaly.js
   * - js/physics/Engine/Orbital/CalculateTrueAnomalyRelativisticCorrection.js
+  * - js/physics/Engine/Orbital/ComputeAngularVelocity.js
+  * - js/physics/Engine/Orbital/ComputeOrbitalVelocity.js
+  * - js/physics/Engine/Orbital/ComputeRadialOrbitalDistance.js
   * - js/physics/Engine/Atmospheric/ComputeHumidityFactor.js
   * - js/physics/Engine/Atmospheric/ComputeSpecificHeat.js
   * - js/physics/Engine/Atmospheric/ComputeMolarMass.js
   * - js/physics/Engine/Atmospheric/ComputeAtmosphericColumn.js
   * - js/physics/Engine/Atmospheric/ComputeAtmosphericPressure.js
   * - js/physics/Engine/Gravity/ComputeGravitationalInfluence.js
+  * - js/physics/Engine/Dynamics/ComputeCentrifugalAcceleration.js
+  * - js/physics/Engine/Dynamics/ComputeCoriolisAcceleration.js
+  * 
   **/
 class PhysicsEngine 
 { 
@@ -99,6 +105,23 @@ class PhysicsEngine
         e, 
         tolerance = 1e-6
     ) {};
+    //Defined in js/physics/Engine/Orbital/ComputeAngularVelocity.js
+    ComputeAngularVelocity(
+        speed,
+        radialDistance
+    ) {};
+    //Defined in js/physics/Engine/Orbital/ComputeOrbitalVelocity.js
+    ComputeOrbitalVelocity(
+        radialDistance,
+        mass,
+        a
+    ) {};
+    //Defined in js/physics/Engine/Orbital/ComputeRadialOrbitalDistance.js
+    ComputeRadialOrbitalDistance(
+        a,
+        e,
+        anomaly
+    ) {};
     //Defined in js/physics/Engine/Atmospheric/ComputeHumidityFactor.js
     ComputeAtmosphericHumidityFactor(
         composition
@@ -135,5 +158,16 @@ class PhysicsEngine
         y1,
         x2,
         y2
+    ) {};
+    //Defined in js/physics/Engine/Dynamics/ComputeCentrifugalAcceleration.js
+    ComputeCentrifugalAcceleration(
+        relativePositionX,
+        relativePositionY,
+        omega
+    ) {};
+    //Defined in js/physics/Engine/Dynamics/ComputeCoriolisAcceleration.js
+    ComputeCoriolisAcceleration(
+        relativeVelocity,
+        omega
     ) {};
 }
