@@ -988,8 +988,8 @@ class SpaceSimulator {
             if (targetAtmo && h >= 0&&h < targetAtmo.maxAltitude) {
                 let rho = targetAtmo.density * Math.exp(- h/ targetAtmo.scaleHeight);
                 const output = calcolaInquinamentoAtmosferico(targetAtmo.composition,rho);
-                const Pressione = calculateAtmosphericPressure(rho, 288.15, targetAtmo.composition);
-                const PressioneSup = calculateAtmosphericPressure(targetAtmo.density, 288.15, targetAtmo.composition);
+                const Pressione = physicsEngine.ComputeAtmosphericPressure(rho, 288.15, targetAtmo.composition);
+                const PressioneSup = physicsEngine.ComputeAtmosphericPressure(targetAtmo.density, 288.15, targetAtmo.composition);
                 let albedo = targetAtmo?.albedo??0.80;
                 temperatura = computePlanetaryTemperature((targetAtmo.composition),globalGameData.Star.luminosity,targetDistance,albedo,rho,targetAtmo?.molecularWeight??0,targetAtmo?.scaleHeight??0,TargetMass,targetRadius,targetAtmo?.density??0,targetAtmo?.maxAltitude??0,PressioneSup,globalGameData.Starship?.altitudineRelativa??0)
                 if(isFinite(Pressione)&&isFinite(temperatura)){

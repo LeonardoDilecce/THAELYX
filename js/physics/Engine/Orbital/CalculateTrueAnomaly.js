@@ -47,7 +47,7 @@ PhysicsEngine.prototype.CalculateTrueAnomaly = function(
 ) 
 {
     // Mean motion (rad/s): orbital angular velocity in Keplerian motion
-    const n = Math.sqrt(G * centralMass / Math.pow(a, 3)); 
+    const n = Math.sqrt(this.G * centralMass / Math.pow(a, 3)); 
     // Mean anomaly at time t (wrapped to 0–2π)
     const M = (M0 + n * t) % (2 * Math.PI);
     // Solve Kepler's equation to obtain the Eccentric Anomaly E 

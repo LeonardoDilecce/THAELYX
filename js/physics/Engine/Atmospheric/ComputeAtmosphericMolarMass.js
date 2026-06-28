@@ -34,17 +34,30 @@ PhysicsEngine.prototype.ComputeAtmosphericMolarMass = function(
     composition
 ) 
 {
-    let total = 0;
-    // Iterate through each gas in the mixture
+    // Compute total percentage (may not be exactly 100)
+    let totalPct = 0;
     for (const gas in composition) 
     {
-        // Molar mass of the gas (g/mol)
-        const mw = gasThermalMap[gas].molarMass;
-        // Accumulate weighted contribution: percentage * molar mass
-        total += (composition[gas] * mw);
+        totalPct += composition[gas];
     }
-    // Convert:
-    //   - divide by 100 to normalize percentages
-    //   - divide by 1000 to convert g/mol → kg/mol
-    return total / 100 / 1000; 
+    // Avoid division by zero
+    if (totalPct <= 0) 
+    {
+        return 0;
+    }
+    let total = 0;
+    // Weighted average molar mass (kg/mol)
+    for (const gas in composition) 
+    {
+        const pct = composition[gas];
+        // Molar mass of the gas (g/mol) → convert to kg/mol
+        const mw = gasThermalMap[gas]?.molarMass;
+        if (!mw) 
+        {
+            continue; // skip unknown gases    
+        }
+        const fraction = pct / totalPct;   // normalized fraction
+        total += fraction * (mw / 1000);   // convert g/mol → kg/mol
+    }
+    return total;
 }

@@ -5,7 +5,7 @@ function updateReentryTemperature(distanza, surface, rho, v, area, deltaTime,mas
     if (targetAtmosphere && targetAtmosphere.composition) {
         const composition = targetAtmosphere.composition;
         const cp_gas = calculateGasCp(composition);
-        const pressure = calculateAtmosphericPressure(rho, 288.15, composition);
+        const pressure = physicsEngine.ComputeAtmosphericPressure(rho, 288.15, composition);
         const T0 = surface.T0 ?? surface.actualTemperature ?? 288.15;
         let newTStatic = 2.725;
         if (!clone)  newTStatic = computePlanetaryTemperature( composition, globalGameData.Star.luminosity, targetDistance,  targetAtmosphere.albedo,  rho,  targetAtmosphere.molecularWeight, targetAtmosphere.scaleHeight, targetMass, targetRadius,targetAtmosphere.density,   targetAtmosphere.maxAltitude,  pressure,distanza);

@@ -74,7 +74,7 @@ PhysicsEngine.prototype.ComputeAtmosphericColumn = function(
 {
 
     // Gravitational acceleration at the surface (assumed constant)
-    const g  = (G * planetMass) / Math.pow(planetRadius, 2);
+    const g  = (this.G * planetMass) / Math.pow(planetRadius, 2);
     // Effective molar mass of the atmospheric mixture (kg/mol)
     const μ  = this.ComputeAtmosphericMolarMass(composition);
     // Specific heat capacity Cp of the mixture (J/kg·K)
@@ -104,7 +104,7 @@ PhysicsEngine.prototype.ComputeAtmosphericColumn = function(
             T_z = this.atmosphericColumnSimulationEpsilon;
         }
         // Density at previous layer (ideal gas law)
-        const rho_prev = (P_prev * μ) / (R * T_prev);
+        const rho_prev = (P_prev * μ) / (this.ℛ * T_prev);
         // Store computed values for this altitude
         results.push({ altitude:z,T: T_z});
         // Prepare for next iteration

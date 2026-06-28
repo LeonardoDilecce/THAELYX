@@ -43,6 +43,7 @@
   * - js/physics/Engine/Atmospheric/ComputeSpecificHeat.js
   * - js/physics/Engine/Atmospheric/ComputeMolarMass.js
   * - js/physics/Engine/Atmospheric/ComputeAtmosphericColumn.js
+  * - js/physics/Engine/Atmospheric/ComputeAtmosphericPressure.js
   * - js/physics/Engine/Gravity/ComputeGravitationalInfluence.js
   **/
 class PhysicsEngine 
@@ -59,7 +60,10 @@ class PhysicsEngine
         atmosphericColumnSimulationStep = 1,
         atmosphericColumnSimulationEpsilon = 1.4,
         atmosphericColumnSimulationLapseRateFactor = 1 - 26.6,
-        atmosphericColumnSimulationLapseRateAttenuation = 25
+        atmosphericColumnSimulationLapseRateAttenuation = 25,
+        G = 6.67430e-11,
+        c = 299792458,
+        ℛ = 8.314462618
     ) 
     {
         this.maxKeplerSolverIterations = maxKeplerSolverIterations;
@@ -69,6 +73,9 @@ class PhysicsEngine
         this.atmosphericColumnSimulationEpsilon = atmosphericColumnSimulationEpsilon;
         this.atmosphericColumnSimulationLapseRateFactor = atmosphericColumnSimulationLapseRateFactor;
         this.atmosphericColumnSimulationLapseRateAttenuation = atmosphericColumnSimulationLapseRateAttenuation;
+        this.ℛ = ℛ;
+        this.G = G;
+        this.c = c;
     };
     //Defined in js/physics/Engine/Orbital/CalculateTrueAnomaly.js
     CalculateTrueAnomaly(
@@ -114,6 +121,12 @@ class PhysicsEngine
         altitudeStart,
         altitudeEnd,
         baseDensity
+    ) {};
+    //Defined in js/physics/Engine/Atmospheric/ComputeAtmosphericPressure.js
+    ComputeAtmosphericPressure(
+        rho,
+        T,
+        composition
     ) {};
     //Defined in js/physics/Engine/Gravity/ComputeGravitationalInfluence.js
     ComputeGravitationalInfluence(

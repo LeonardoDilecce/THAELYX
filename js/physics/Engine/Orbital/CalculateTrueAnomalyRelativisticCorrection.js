@@ -56,8 +56,8 @@ PhysicsEngine.prototype.CalculateTrueAnomalyRelativisticCorrection = function(
     const n = Math.sqrt(G * centralMass / Math.pow(a, 3)); 
     // GR perihelion precession per orbit (Δφ)
     // Derived from the Schwarzschild metric (first-order approximation)
-    let deltaPhi = (6 * Math.PI * G * centralMass) 
-                   / (a * (1 - e * e) * c * c);
+    let deltaPhi = (6 * Math.PI * this.G  * centralMass) 
+                   / (a * (1 - e * e) * this.c * this.c);
     // Instantaneous orbital radius r(θ)
     const r = a * (1 - e * e) / (1 + e * Math.cos(theta));
     // Orbital period (Newtonian)
@@ -67,14 +67,14 @@ PhysicsEngine.prototype.CalculateTrueAnomalyRelativisticCorrection = function(
     // Tangential velocity induced by the precession
     let v = r * omega;
     // Prevent unphysical superluminal velocities
-    if (v >= c) 
+    if (v >= this.c) 
     {
-        v = this.maxRelativisticPrecision * c;
+        v = this.maxRelativisticPrecision * this.c;
         omega = v / r;
         deltaPhi = omega * period; 
     }
     // β = v/c, clamped for numerical stability
-    const beta = Math.min(v / c, this.maxRelativisticPrecision);
+    const beta = Math.min(v / this.c, this.maxRelativisticPrecision);
     // Lorentz factor γ = 1 / sqrt(1 − β²)
     const gamma = 1 / Math.sqrt(1 - beta * beta);
     // Apply relativistic drift:
