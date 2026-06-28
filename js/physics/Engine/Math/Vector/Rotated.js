@@ -1,3 +1,35 @@
+/**
+  * 
+  * function Rotated(
+  *     angle
+  * )
+  *
+  * Returns a new vector obtained by rotating this vector
+  * around its origin by the given angle (in radians).
+  *
+  * Rotation uses the standard 2D rotation matrix:
+  *
+  *   x' = x·cosθ − y·sinθ
+  *   y' = x·sinθ + y·cosθ
+  *
+  * The original vector is not modified.
+  *
+  * ------------
+  * Last Update: 2026-06-28
+  * ------------
+  *
+  * Parameters:
+  *   angle - rotation angle in radians
+  *
+  * Returns:
+  *   A new rotated Vector instance
+  *
+  * Usage:
+  *   const r = v.Rotated(
+  *      Math.PI / 2
+  *   );
+  *
+  */
 Vector.prototype.Rotated = function(
     angle
 )
@@ -13,4 +45,4 @@ Vector.prototype.Rotated = function(
         this.x * sin + this.y * cos,
         this.origine
     );
-}
+};

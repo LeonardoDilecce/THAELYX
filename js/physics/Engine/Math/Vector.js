@@ -3,14 +3,14 @@ class Vector
     constructor(
         x = 0, 
         y = 0, 
-        origine = { x: 0, y: 0 }
+        origin = { x: 0, y: 0 }
     ) 
     {
         this.x = x;
         this.y = y;
-        this.origine = 
+        this.origin = 
         { 
-            ...origine 
+            ...origin 
         };
         this.__type = "Vettore";
     }
@@ -25,17 +25,29 @@ class Vector
     //Defined in js/physics/Engine/Math/Vector/Magnitude.js
     Magnitude() {};
     //Defined in js/physics/Engine/Math/Vector/Rotated.js
-    Rotated(angle) {};
+    Rotated(
+        angle
+    ) {};
     //Defined in js/physics/Engine/Math/Vector/Clone.js
     Clone() {};
     //Defined in js/physics/Engine/Math/Vector/Add.js
-    Add(v) {}
+    Add(
+        v
+    ) {}
     //Defined in js/physics/Engine/Math/Vector/Subtract.js
-    Subtract(v) {};
+    Subtract(
+        v
+    ) {};
     //Defined in js/physics/Engine/Math/Vector/Dot.js
-    Dot(v) {};
+    Dot(
+        v
+    ) {};
     //Defined in js/physics/Engine/Math/Vector/Multiply.js
-    Multiply(scalar) {};
+    Multiply(
+        scalar
+    ) {};
     //Defined in js/physics/Engine/Math/Vector/Divide.js
-    Divide(scalar) {};
+    Divide(
+        scalar
+    ) {};
 }
