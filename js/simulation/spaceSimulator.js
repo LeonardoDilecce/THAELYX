@@ -271,7 +271,8 @@ class SpaceSimulator {
             const { a, e } = planet;
             const b = a * Math.sqrt(1 - e * e);
             const c = a * e;
-            const anomaly = physicsEngine.CalculateTrueAnomaly(globalGameData.Star, globalGameData.chronometer, a, e, globalGameData.chronometer.time, planet.epochAnomaly, sunMass, planet, deltaTime);  
+            const baseAnomaly = physicsEngine.CalculateTrueAnomaly(globalGameData.Star, globalGameData.chronometer, a, e, globalGameData.chronometer.time, planet.epochAnomaly, sunMass, planet, deltaTime);  
+            const anomaly = physicsEngine.CalculateTrueAnomalyRelativisticCorrection(baseAnomaly, a, e, globalGameData.chronometer.time, sunMass);
             let epsilon = (G * sunMass) / (a * c * c);
             if (epsilon > 0.1) 
             {
@@ -353,7 +354,8 @@ class SpaceSimulator {
                     const me = moon.e ?? 0.01;
                     const mb = ma * Math.sqrt(1 - me * me);
                     const mc = ma * me;
-                    const MoonAnomaly = physicsEngine.CalculateTrueAnomaly(globalGameData.Star, globalGameData.chronometer, ma, me, globalGameData.chronometer.time, moon.epochAnomaly, planet.mass, moon, deltaTime);
+                    const baseMoonAnomaly = physicsEngine.CalculateTrueAnomaly(globalGameData.Star, globalGameData.chronometer, ma, me, globalGameData.chronometer.time, moon.epochAnomaly, planet.mass, moon, deltaTime);
+                    const MoonAnomaly = physicsEngine.CalculateTrueAnomalyRelativisticCorrection(baseMoonAnomaly, ma, me, globalGameData.chronometer.time, planet.mass);
                     let epsilon = (G * moon.mass) / (ma * c * c);
                     if (epsilon > 0.1) 
                     {
@@ -459,7 +461,8 @@ class SpaceSimulator {
                         moon.a = -mmu / (2 * menergy);
                         moon.e = Math.sqrt(1 + (2 * menergy * mhApprox * mhApprox) / (mmu * mmu));
                         const planetToMoon = new Planet(moon.name,moon.a+planet.a,moon.e+planet.e,moon.radius,moon.color,planet.angle,moon.meanSpeed,moon.mass,moon.inclination,planet.epochAnomaly,[],moon.atmosphere)
-                        const anomaly = physicsEngine.CalculateTrueAnomaly(globalGameData.Star, globalGameData.chronometer, planetToMoon.a, planetToMoon.e, globalGameData.chronometer.time, planetToMoon.epochAnomaly, sunMass, planetToMoon, deltaTime);
+                        const escapeAnomaly = physicsEngine.CalculateTrueAnomaly(globalGameData.Star, globalGameData.chronometer, planetToMoon.a, planetToMoon.e, globalGameData.chronometer.time, planetToMoon.epochAnomaly, sunMass, planetToMoon, deltaTime);
+                        const anomaly = physicsEngine.CalculateTrueAnomalyRelativisticCorrection(escapeAnomaly, planetToMoon.a, planetToMoon.e, globalGameData.chronometer.time, sunMass);
                         let epsilon = (G * sunMass) / (planetToMoon.a * c * c);
                         if (epsilon > 0.1) 
                         {
@@ -610,7 +613,8 @@ class SpaceSimulator {
                         ctx.strokeStyle = "rgba(255,255,255,0.15)";
                         ctx.stroke();
                     }else if(globalGameData.camera.scale<0.005){
-                        const anomaly = physicsEngine.CalculateTrueAnomaly(globalGameData.Star, globalGameData.chronometer, a, e, globalGameData.chronometer.time, planet.epochAnomaly, sunMass, planet, deltaTime);
+                        const baseAnomaly = physicsEngine.CalculateTrueAnomaly(globalGameData.Star, globalGameData.chronometer, a, e, globalGameData.chronometer.time, planet.epochAnomaly, sunMass, planet, deltaTime);
+                        const anomaly = physicsEngine.CalculateTrueAnomalyRelativisticCorrection(baseAnomaly, a, e, globalGameData.chronometer.time, sunMass);
                         const delta = Math.PI / 50;
                         const startAngle = anomaly - delta;
                         const endAngle = anomaly + delta;
