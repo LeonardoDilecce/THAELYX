@@ -1,5 +1,22 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2026 Leonardo Dilecce
+function ComputeGravitationalInfluence(
+    mass,
+    x1, 
+    y1,
+    x2, 
+    y2
+) 
+{
+    // Vector difference between the two points
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    // Squared distance (avoids expensive sqrt)
+    const dist2 = dx * dx + dy * dy;
+    // Influence proportional to mass / r²
+    return mass / dist2;
+}
+
 function reloadInfluenceArea(starship, star) 
 {
     if(starship&&star){
@@ -15,7 +32,7 @@ function reloadInfluenceArea(starship, star)
             const dx = StashipX - PlanetX;
             const dy = StashipY - PlanetY;
             const dist2 = dx*dx + dy*dy;
-            const force = physicsEngine.ComputeGravitationalInfluence(planet.mass, StashipX, StashipY, PlanetX, PlanetY);
+            const force = ComputeGravitationalInfluence(planet.mass, StashipX, StashipY, PlanetX, PlanetY);
             if(dist2 <= influenceAreaRadius * influenceAreaRadius){
                 PlausibileMoons.push(...planet.moons);
                 if(force>MaxPlanetaryForce){
@@ -35,7 +52,7 @@ function reloadInfluenceArea(starship, star)
                 const Mdx = StashipX - MoonX;
                 const Mdy = StashipY - MoonY;
                 const dist2 = Mdx*Mdx + Mdy*Mdy;
-                const force = physicsEngine.ComputeGravitationalInfluence(moon.mass, StashipX, StashipY, MoonX, MoonY);
+                const force = ComputeGravitationalInfluence(moon.mass, StashipX, StashipY, MoonX, MoonY);
                 if((dist2 <= MoonInfluenceRadius * MoonInfluenceRadius)&&force>MaxMoonInfForce){     
                     findMoon = true;               
                     starship.relatedObject = moon.name;

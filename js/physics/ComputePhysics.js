@@ -1,5 +1,10 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2026 Leonardo Dilecce
+
+
+
+
+
 function ComputePhysics(engine,starship,deltaTime,clone){
     if(!starship) return;
     let baseCoordinates = {x:0,y:0}
@@ -79,27 +84,37 @@ function ComputePhysics(engine,starship,deltaTime,clone){
     reloadThermodynamics(starship,deltaTime,targetAtmosphere,distanza-targetRadius,TargetMass,targetRadius,targetDistance);
     reloadParachuteDeployment(starship,targetAtmosphere,deltaTime);
     if(!starship.ferma&&starship.EnginesOnline) reloadFuelConsumption(starship,deltaTime,targetAtmosphere, TargetMass, targetRadius, targetDistance);
-    if(!starship.ferma) reloadAcceleration(engine,starship,deltaTime,TargetMass,targetRadius,targetAtmosphere,targetA,targetE,TargetCenter,TargetEpochAnomaly,BaseMass);
+    if(!starship.ferma) 
+        reloadAcceleration(engine,starship,deltaTime,TargetMass,targetRadius,targetAtmosphere,targetA,targetE,TargetCenter,TargetEpochAnomaly,BaseMass);
     const a0 = starship.acceleration.clone();
     if(!starship.ferma){
-        starship.relativePosition.x += starship.velocity.x * deltaTime+ 0.5 * a0.x * deltaTime * deltaTime;
-        starship.relativePosition.y += starship.velocity.y * deltaTime + 0.5 * a0.y * deltaTime * deltaTime;
+        //starship.relativePosition.x += starship.velocity.x * deltaTime+ 0.5 * a0.x * deltaTime * deltaTime;
+        //starship.relativePosition.y += starship.velocity.y * deltaTime + 0.5 * a0.y * deltaTime * deltaTime;
     }
-    if(!starship.ferma) reloadAcceleration(engine,starship,deltaTime,TargetMass,targetRadius,targetAtmosphere,targetA,targetE,TargetCenter,TargetEpochAnomaly,BaseMass);
+    if(!starship.ferma) 
+        reloadAcceleration(engine,starship,deltaTime,TargetMass,targetRadius,targetAtmosphere,targetA,targetE,TargetCenter,TargetEpochAnomaly,BaseMass);
     const a1 = starship.acceleration.clone();
-    starship.velocity.x += 0.5 * (a0.x + a1.x) * deltaTime;
-    starship.velocity.y += 0.5 * (a0.y + a1.y) * deltaTime;
+    if(!starship.ferma)
+    {
+        const values = physicsEngine.VelocityVerlet(starship.relativePosition,starship.velocity,a0,a1,deltaTime);
+        const wrapperVel = new Vettore(values.velocity.x,values.velocity.y);
+        const wrapperPos = new Vettore(values.position.x,values.position.y);
+        starship.relativePosition = wrapperPos;
+        starship.velocity = wrapperVel;
+    }
+    //starship.velocity.x += 0.5 * (a0.x + a1.x) * deltaTime;
+    //starship.velocity.y += 0.5 * (a0.y + a1.y) * deltaTime;   
     const v = starship.velocity.modulo();
     if (v >= 0.99999999999999999 * c) {
-        starship.velocity = starship.velocity.scale(0.99999999999999999 * c / v);
+        debugger;
+        starship.velocity.x = 0.99999999999999999 * c;
+        starship.velocity.y = 0.99999999999999999 * c;
     }
     if(starship.altitudineRelativa<0){
-        const cdx = starship.relativePosition.x;
-        const cdy = starship.relativePosition.y;
-        const distance = Math.sqrt(cdx * cdx + cdy * cdy);
+        const distance = physicsEngine.ComputeDistance(starship.relativePosition.x,starship.relativePosition.y);
         if (distance <= targetRadius) {
-            const nx = cdx / distance;
-            const ny = cdy / distance;
+            const nx = starship.relativePosition.x / distance;
+            const ny = starship.relativePosition.y / distance;
             starship.relativePosition.x = nx * targetRadius;
             starship.relativePosition.y = ny * targetRadius;
             starship.altitudineRelativa = 0;
@@ -109,7 +124,7 @@ function ComputePhysics(engine,starship,deltaTime,clone){
             const distanza2 = dx*dx + dy*dy;
             const distanza = Math.sqrt(distanza2);
             if(distanza2 > 1e-12 && isFinite(distanza2)){
-                const gravity = G * TargetMass / distanza2;
+                const gravity = physicsEngine.ComputeGravity(TargetMass,dx,dy);
                 const impactAngle = starship.angle;
                 const angleFactor = Math.abs(Math.cos(impactAngle)); 
                 const maxSafeVelocity = 10 + gravity;

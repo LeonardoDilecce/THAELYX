@@ -49,9 +49,12 @@
   * - js/physics/Engine/Atmospheric/ComputeMolarMass.js
   * - js/physics/Engine/Atmospheric/ComputeAtmosphericColumn.js
   * - js/physics/Engine/Atmospheric/ComputeAtmosphericPressure.js
-  * - js/physics/Engine/Gravity/ComputeGravitationalInfluence.js
+  * - js/physics/Engine/Gravity/ComputeGravity.js
   * - js/physics/Engine/Dynamics/ComputeCentrifugalAcceleration.js
   * - js/physics/Engine/Dynamics/ComputeCoriolisAcceleration.js
+  * - js/physics/Engine/Integration/VelocityVerlet.js
+  * - js/physics/Engine/Math/ComputeDistance.js
+  * 
   * 
   **/
 class PhysicsEngine 
@@ -153,13 +156,11 @@ class PhysicsEngine
         T,
         composition
     ) {};
-    //Defined in js/physics/Engine/Gravity/ComputeGravitationalInfluence.js
-    ComputeGravitationalInfluence(
+    //Defined in js/physics/Engine/Gravity/ComputeGravity.js
+    ComputeGravity(
         mass,
-        x1,
-        y1,
-        x2,
-        y2
+        x,
+        y,
     ) {};
     //Defined in js/physics/Engine/Dynamics/ComputeCentrifugalAcceleration.js
     ComputeCentrifugalAcceleration(
@@ -172,4 +173,17 @@ class PhysicsEngine
         relativeVelocity,
         omega
     ) {};
+    //Defined in js/physics/Engine/Integration/VelocityVerlet.js
+    VelocityVerlet(
+        position, 
+        velocity, 
+        a0, 
+        a1, 
+        deltaTime
+    ) {};
+    //Defined in js/physics/Engine/Math/ComputeDistance.js
+    ComputeDistance(
+        x,
+        y
+    ){};
 }
